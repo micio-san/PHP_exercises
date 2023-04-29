@@ -14,53 +14,56 @@
 
 <body>
   <main>
+    <div class="err-succ_disp">
+      <p></p>
+    </div>
     <div class="form-container">
       <img src="https://images.unsplash.com/photo-1673720436356-8af2190c9c06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="welcome img">
-      <form>
+      <form action="./logic.php" method="post">
         <h1>Sign Up</h1>
         <div class="field-container">
-          <div class="input_container">
+          <div class="input-container">
             <label for="first_name">First name</label>
             <input name="first_name" type="text">
           </div>
-          <div class="input_container">
+          <div class="input-container">
             <label for="second_name">Second Name</label>
             <input name="second_name" type="text">
           </div>
         </div>
         <div class="field-container">
-          <div class="input_container">
+          <div class="input-container">
             <label for="phone">phone</label>
             <input name="phone" type="text">
           </div>
-          <div class="input_container">
+          <div class="input-container">
             <label for="email">email</label>
-            <input name="email" type="email">
+            <input name="email" type="text">
           </div>
         </div>
         <div class="field-container">
-          <div class="input_container">
+          <div class="input-container">
             <label for="password">password</label>
-            <input name="password" type="password">
+            <input name="password" type="text">
           </div>
-          <div class="input_container">
+          <div class="input-container">
             <label for="con_password">Confirm password</label>
             <input name="con_password" type="password">
           </div>
         </div>
-        <div class="field-container">
-          <div class="input_container">
-            <input type="radio" name="terms">
+        <div class="field-container_checkbox">
+          <div class="input-container_checkbox">
+            <input type="checkbox" name="terms">
             <p>I accept the terms and conditions</p>
           </div>
-          <div class="input_container">
-            <input type="radio" name="news">
+          <div class="input-container_checkbox">
+            <input type="checkbox" name="news">
             <p>I want
               to receive news about products and
               offers.</p>
           </div>
         </div>
-        <button type="submit">SIGN UP</button>
+        <button class="btn" type="submit">SIGN UP</button>
       </form>
     </div>
   </main>

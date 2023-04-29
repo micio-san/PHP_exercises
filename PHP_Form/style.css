@@ -16,8 +16,21 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
+    position: relative;
 }
+
+.err-succ_disp {
+    position: absolute;
+    top: 70px;
+    width:1046px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    height: 30px ;
+    font-size: 25px;
+}
+
 .form-container {
     height: 652px ;
     width:1046px;
@@ -28,6 +41,7 @@ main {
     border-radius: 10px;
     overflow: hidden;
 }
+
 img {
     height:100%;
     width: 35%;
@@ -38,7 +52,7 @@ form {
     padding: 25px;
     display: flex;
     align-items: start;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     height: 100%;
 }
@@ -55,17 +69,37 @@ h1 {
     width: 100%;
 }
 
-.input_container {
+.field-container_checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+}
+
+.input-container {
     display: flex;
     align-items: start;
     justify-content: center; 
     flex-direction: column;
 }
 
+.input-container_checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: start; 
+    width: 281px;
+}
+
+
 label {
     text-transform: capitalize;
     font-size: 20px;
     color: #135B96;
+}
+
+.input-container_checkbox >p{
+   color: #135B96;
+   width: 150px;
 }
 
 input {
@@ -74,4 +108,28 @@ input {
     background: #EAD6D5;
     border: 2px solid #135B96;
     border-radius: 5px;
+    outline: none;
+    padding: 0px 6px;
+    color: #135B96;
+    font-size: 20px;
+}
+
+
+.input-container_checkbox >input {
+    width: 35px;  
+     height: 35px;
+     margin-right: 10px;
+ }
+ 
+
+.btn {
+    margin-left: auto;
+    background: #135B96;
+    color: #EAD6D5;
+    width: 281px;
+    height: 67px;
+    font-size: 32px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
