@@ -9,6 +9,7 @@ $pass = "";
 $c_pass = "";
 $terms = "";
 $news = "";
+$regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/";
 //check names et lastnames
 function checkingsStrs($which, $x, $var)
 {
@@ -28,7 +29,7 @@ checkingsStrs($_POST["second_name"], "Last Name", "l_name");
 
 function checkPhone()
 {
-    if (!is_numeric($_POST["phone"]) || empty($_POST["phone"]) || ctype_space($_POST["phone"]) === true) {
+    if (!is_numeric($_POST["phone"]) || empty($_POST["phone"]) || ctype_space($_POST["phone"]) === true || strlen($_POST["phone"]) != 10) {
         global $err;
         array_push($err, "Please insert a valid Phone Number");
     } else {
@@ -46,7 +47,7 @@ function checkMail()
         global $err;
         array_push($err, "Please insert a valid Email");
     } else {
-        $GLOBALS["email"] = $_POST["email"];
+        $GLOBALS["mail"] = $_POST["email"];
     }
 }
 
@@ -55,14 +56,31 @@ checkMail();
 function checkPassword()
 {
     global $err;
+    global $regex;
+    global $pass;
+    global $c_pass;
     if (10 > strlen($_POST["password"])) {
-        $err = "Your password should at least be 10 characters long";
-    } elseif (!ctype_alnum($_POST["password"])) {
-        $err = "Your password shoul contain letters, number and special charachters";
-    }
+        array_push($err, "Your password should at least be 10 characters long");
+    } elseif (!preg_match($regex, $_POST["password"])) {
+        array_push($err, "Your password should contain both uppercase letters,lowercase letters, numbers and special charachters");
+    } else {
+        $pass = $_POST["password"];
+    };
+    $pass === $_POST["con_password"] ? $c_pass = $_POST["con_password"] : array_push($err, "Your passwords don't match!");
 };
 
 checkPassword();
-echo "<pre>";
+
+function checkTerm()
+{
+    global $err;
+    if (!isset($_POST["terms"])) {
+        array_push($err, "Please Agree to the terms and coditions.");
+    } else {
+        $GLOBALS["terms"] = true;
+    }
+}
+
+checkTerm();
+
 var_dump($err);
-echo "</pre>";
